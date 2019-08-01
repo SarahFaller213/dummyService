@@ -3,7 +3,7 @@
 
 ###################################################################################
 
-echo "make sure you are in the root folder : cart-services-sarah"
+echo "make sure you are in the root folder : dummyService"
 
 echo "Build JAR"
 mvn clean install -DskipTests

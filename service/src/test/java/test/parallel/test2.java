@@ -20,7 +20,7 @@ public class test2 extends Arquillian {
 
 	@Test(groups = "critical")
 	public void methodTwo() throws Exception {
-		System.out.println("Hi! This is sarah in method 2");
+		System.out.println("Hi! This is sarah in method 2 Thread name: " + Thread.currentThread().getName());
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
 		for(int i = 0; i<100000; i++){
