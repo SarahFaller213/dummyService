@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Cart Checkout Daily Run Tests">
+
+	<groups>
+		<run>
+			<include name="critical" />
+			<include name="arquillian" />
+		</run>
+	</groups>
+
+
+	<test name="API_Tests">
+		<classes>
+		    <class name="test.parallel.test1" />
+			<class name="test.parallel.test2" />
+			<class name="test.parallel.test3" />
+			<class name="test.parallel.test4" />
+			<class name="test.parallel.test5" />
+		</classes>
+	</test>
+
+</suite>

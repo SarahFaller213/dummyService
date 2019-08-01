@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>test.parallel</groupId>
+  <artifactId>dummy-services</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.5.RELEASE</version>
+    <relativePath />
+  </parent>
+
+  <name>${project.artifactId}</name>
+  <url>http://maven.apache.org</url>
+
+  <modules>
+    <module>service</module>
+  </modules>
+
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <google.guava.version>16.0.1</google.guava.version>
+    <springfox-swagger.version>2.8.0</springfox-swagger.version>
+    <javax.interception.version>1.2</javax.interception.version>
+    <javax.servlet.api.version>4.0.0</javax.servlet.api.version>
+    <javax.el.api.version>3.0.0</javax.el.api.version>
+    <javax.inject.version>1</javax.inject.version>
+    <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+    <docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
+    <net.jpountz.lz4.version>1.3.0</net.jpountz.lz4.version>
+    <spring.boot.starter.data.cassandra.reactive.version>2.0.5.RELEASE</spring.boot.starter.data.cassandra.reactive.version>
+    <spring.boot.starter.data.rest.version>2.0.5.RELEASE</spring.boot.starter.data.rest.version>
+    <spring.boot.starter.actuator.version>2.0.5.RELEASE</spring.boot.starter.actuator.version>
+    <json.path.version>2.1.0</json.path.version>
+    <javax.ws.rs.api.version>2.1</javax.ws.rs.api.version>
+    <gson.version>2.8.4</gson.version>
+    <junit.version>4.12</junit.version>
+    <jersey.hk2.version>2.27</jersey.hk2.version>
+    <maven.compiler.plugin.version>3.0</maven.compiler.plugin.version>
+    <activation.version>1.1.1</activation.version>
+    <jaxb-api.version>2.3.0</jaxb-api.version>
+    <jaxb-core.version>2.3.0</jaxb-core.version>
+    <jaxb-impl.version>2.3.0</jaxb-impl.version>
+    <agent-java-testng.version>4.2.1</agent-java-testng.version>
+    <logger-java-log4j.version>4.0.1</logger-java-log4j.version>
+    <testng.version>6.14.3</testng.version>
+    <org.apache.httpcomponents.httpclinet>4.4.1</org.apache.httpcomponents.httpclinet>
+    <dockerfile.plugin.version>1.4.10</dockerfile.plugin.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${org.apache.httpcomponents.httpclinet}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-log4j2</artifactId>
+        <version>2.1.0.RELEASE</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-cassandra</artifactId>
+        <version>${spring.boot.starter.data.cassandra.reactive.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>${gson.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+        <version>${spring.boot.starter.actuator.version}</version>
+      </dependency>
+
+      <!-- spring starter pack -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-rest</artifactId>
+        <version>${spring.boot.starter.data.rest.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- test -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <!-- Arquillian Cube -->
+      <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>${testng.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>${activation.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb-api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-core</artifactId>
+        <version>${jaxb-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-impl</artifactId>
+        <version>${jaxb-impl.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.epam.reportportal</groupId>
+        <artifactId>agent-java-testng</artifactId>
+        <version>${agent-java-testng.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.epam.reportportal</groupId>
+        <artifactId>logger-java-log4j</artifactId>
+        <version>${logger-java-log4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.arquillian.testng</groupId>
+        <artifactId>arquillian-testng-standalone</artifactId>
+        <version>1.4.2.Sarah-SNAPSHOT</version>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.spotify</groupId>
+          <artifactId>dockerfile-maven-plugin</artifactId>
+          <version>${dockerfile.plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.3</version>
+          <configuration>
+            <tagNameFormat>@{project.version}</tagNameFormat>
+            <mavenExecutorId>forked-path</mavenExecutorId>
+            <preparationGoals>clean install</preparationGoals>
+            <goals>deploy <!--site-deploy--></goals>
+            <arguments>-B -DskipTests</arguments>
+            <pushChanges>true</pushChanges>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <!-- 3.7.0 is defined in spring-boot parent -->
+        <!-- <version>${maven.compiler.plugin.version}</version> -->
+        <configuration>
+          <mainClass>EntryPoint</mainClass>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+      </plugin>
+
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <properties>
+            <property>
+              <!-- disabling default listeners is optional -->
+              <name>usedefaultlisteners</name>
+              <value>false</value>
+            </property>
+          </properties>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <DOCKER_SERVER>${serverUri}</DOCKER_SERVER>
+            <DOCKER_COMPOSE_FILE>${dockerContainersFile}</DOCKER_COMPOSE_FILE>
+          </systemPropertyVariables>
+          <properties>
+            <property>
+              <name>usedefaultlisteners</name>
+              <value>false</value> <!-- disabling default listeners is optional -->
+            </property>
+          </properties>
+
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

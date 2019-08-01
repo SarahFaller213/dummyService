@@ -1,0 +1,13 @@
+version: '3'
+networks:
+  automationNetwork*:
+    driver: bridge
+services:
+  dummyService:
+    image: test.parallel.dummy:latest
+    networks:
+      automationNetwork*:
+        aliases:
+          - dummyServiceContainer
+    ports:
+      - "8080"
