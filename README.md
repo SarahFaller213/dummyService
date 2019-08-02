@@ -2,7 +2,7 @@
 
 Using Arquillian Cube!
 
-To run the project please used the build script I have added in the root folder (sh build.sh) from the root folder. 
+To run the project please use the build script I have added in the root folder (sh build.sh) from the root folder. 
 
 The only thing that must be is changed is the standalone version in the root pom.xml
 
