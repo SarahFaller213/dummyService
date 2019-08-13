@@ -161,12 +161,10 @@
         </exclusion>
       </exclusions>
     </dependency>
-
-
-  </dependencies>
-
-
-
+ </dependencies>
+ 
+  
+  
   <build>
     <plugins>
       <plugin>
@@ -196,4 +194,33 @@
       </plugin>
     </plugins>
   </build>
+  
+        <distributionManagement>
+        <repository>
+		<id>pangaea_releases</id>
+		<url>https://repository.walmart.com/content/repositories/pangaea_releases</url>
+	</repository>
+	<snapshotRepository>
+		<id>pangaea_snapshots</id>
+		<url>https://repository.walmart.com/content/repositories/pangaea_snapshots</url>
+		<uniqueVersion>false</uniqueVersion>
+	</snapshotRepository>
+    </distributionManagement>
+  
+      <repositories>
+        <repository>
+            <id>nexus_release</id>
+            <url>https://repository.walmart.com/content/groups/public/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>nexus_snapshot</id>
+            <url>https://repository.walmart.com/content/groups/public_snapshot/</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+  
+  
 </project>
