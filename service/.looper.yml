@@ -1,0 +1,7 @@
+
+flows:
+  default:
+  - call: uploadToNexuzflowName = 'default')
+    
+  uploadToNexus:
+    - mvn -U clean deploy -DskipTests
