@@ -52,7 +52,7 @@
     <agent-java-testng.version>4.2.1</agent-java-testng.version>
     <logger-java-log4j.version>4.0.1</logger-java-log4j.version>
     <testng.version>6.14.3</testng.version>
-    <org.apache.httpcomponents.httpclinet>4.4.1</org.apache.httpcomponents.httpclinet>
+    <org.apache.httpcomponents.httpclinet>4.5.13</org.apache.httpcomponents.httpclinet>
     <dockerfile.plugin.version>1.4.10</dockerfile.plugin.version>
   </properties>
 
